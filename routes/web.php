@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', "dashboard");
 
+// Route::get('/apartamentos', function (){
+//     return view('apartamentos');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
