@@ -11,35 +11,34 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __('Introduzca los datos del Apartamento que desea crear:') }}
 
-                <form action="{{ route('apartamentos.store') }}" method="POST">
-                    @csrf
-                    <table class="table table-bordered table-form m-3">
-                        <tr>
-                            <td><label for="address">Dirección</label></td>
-                            <td><input type="text" name="direccion" class="form-control" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="ciudad">Ciudad</label></td>
-                            <td><input type="text" name="ciudad" class="form-control" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="pais">País</label></td>
-                            <td><input type="text" name="pais" class="form-control" step="0.01" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="codigo_postal">Código Postal</label></td>
-                            <td><input type="text" name="codigo_postal" class="form-control" required></td>
-                        </tr>
-                        <tr>
-                            <td><label for="precio_venta">Precio Venta</label></td>
-                            <td><input type="text" name="precio_venta" class="form-control" required></td>
-                        </tr>
-                        <tr>
-                            <td><button type="submit" class="btn btn-primary m-3">Guardar</button></td>
-                        </tr>
-                    </table>
-
-                </form>
+                    <form action="{{ route('apartamentos.store') }}" method="POST">
+                        @csrf
+                        <table class="table table-bordered table-form">
+                            <tr>
+                                <td><label for="address">Dirección</label></td>
+                                <td><input type="text" name="direccion" class="form-control" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="ciudad">Ciudad</label></td>
+                                <td><input type="text" name="ciudad" class="form-control" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="pais">País</label></td>
+                                <td><input type="text" name="pais" class="form-control" step="0.01" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="codigo_postal">Código Postal</label></td>
+                                <td><input type="text" name="codigo_postal" class="form-control" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="precio_venta">Precio Venta</label></td>
+                                <td><input type="text" name="precio_venta" class="form-control" required></td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-success m-3">Crear</button>
+                        <button type="reset" class="btn btn-warning m-3">Limpiar</button>
+                    </form>
                 </div>
             </div>
         </div>

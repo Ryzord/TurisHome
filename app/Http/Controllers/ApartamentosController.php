@@ -32,6 +32,8 @@ class ApartamentosController extends Controller
     public function store(Request $request)
     {
         Apartamento::create($request->all());
+
+        return redirect('/apartamentos');
     }
 
     /**
@@ -39,7 +41,8 @@ class ApartamentosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $apartamento = Apartamento::findOrFail($id);
+        return view('apartamentos.mostrar', compact('apartamento'));
     }
 
     /**
@@ -47,6 +50,7 @@ class ApartamentosController extends Controller
      */
     public function edit(string $id)
     {
+        $apartamento = Apartamento::findOrFail($id);
         return view('apartamentos.editar', compact('apartamento'));
     }
 
@@ -55,7 +59,9 @@ class ApartamentosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $apartamento = Apartamento::findOrFail($id);
+        $apartamento->update($request->all());
+        return redirect('/apartamentos');
     }
 
     /**
