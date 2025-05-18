@@ -17,8 +17,8 @@ return new class extends Migration
             $table->decimal('gasto_factura_sin_iva', 8, 2);
             $table->string('concepto_gasto');
             $table->date('fecha');
-            $table->string('nif_proveedor');
-            $table->decimal('iva'. 5, 2)->nullable();
+            $table->string('nif_proveedor')->nullable();
+            $table->decimal('iva', 5, 2)->nullable();
             $table->date('total_iva', 8, 2)->nullable();
             $table->decimal('total_gasto', 8, 2);
             $table->boolean('pagado');

@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\ApartamentosController;
+use App\Http\Controllers\GastosController;
+use App\Http\Controllers\IngresosController;
+use App\Http\Controllers\IntermediariosController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TarifasController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -26,5 +30,9 @@ Route::middleware('auth')->group(function () {
 
 // aqui estan las rutas para el crud, podemos observarlo con php artisan route:list (lo apuntamos porque siempre se nos olvida)
 Route::resource('/apartamentos', ApartamentosController::class);
+Route::resource('/tarifas', TarifasController::class);
+Route::resource('/intermediarios', IntermediariosController::class);
+Route::resource('/gastos', GastosController::class);
+Route::resource('/ingresos', IngresosController::class);
 
 require __DIR__.'/auth.php';

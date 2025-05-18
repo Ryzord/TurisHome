@@ -18,16 +18,16 @@
                     <x-nav-link :href="route('apartamentos.index')" :active="request()->routeIs('apartamentos.index')">
                         {{ __('Apartamentos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('tarifas.index')" :active="request()->routeIs('tarifas.index')">
                         {{ __('Tarifas') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('intermediarios.index')" :active="request()->routeIs('intermediarios.index')">
                         {{ __('Intermediarios') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('ingresos.index')" :active="request()->routeIs('ingresos.index')">
                         {{ __('Ingresos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('gastos.index')" :active="request()->routeIs('gastos.index')">
                         {{ __('Gastos') }}
                     </x-nav-link>
                 </div>
