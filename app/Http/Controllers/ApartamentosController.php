@@ -69,6 +69,8 @@ class ApartamentosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $apartamento = Apartamento::findOrFail($id);
+        $apartamento->delete();
+        return redirect('/apartamentos');
     }
 }

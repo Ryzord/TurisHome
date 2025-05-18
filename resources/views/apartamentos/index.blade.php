@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 table-responsive">
-                    {{ __('Aquí está el listado completo de los Apartamentos! Puedes agregar más si quieres:') }}
+                    {{ __('¡Aquí está el listado completo de los Apartamentos! Puedes agregar más si quieres:') }}
                     {{-- aquí estamos usando uno de los componentes del paquete instalado de laravel breeze, es la unica manera que hemos visto de ponerle los estilos de boton al enlace, no se porque no podemos aplicarle los estilos normales de btn-success --}}
                     <a href="{{ route('apartamentos.create') }}" class="btn btn-success">Nuevo Apartamento</a>
 
@@ -45,12 +45,12 @@
                                                 class="btn btn-info">Ver</a>
                                             <a href="{{ route('apartamentos.edit', $apartamento->id) }}"
                                                 class="btn btn-warning">Editar</a>
-                                            {{-- <form action="{{ route('apartamentos.destroy', $apartamento->id) }}" method="POST"
-                                            style="display:inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                                        </form> --}}
+                                            <form action="{{ route('apartamentos.destroy', $apartamento->id) }}"
+                                                method="POST" style="display:inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

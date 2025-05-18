@@ -13,11 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        //importante hacer el call desde aqui a los seeds q necesitemos, sin poner lo siguiente php artisan db:seed no funcionara
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $this->call(ApartamentosSeeder::class);
+        $this->call(UsersSeeder::class);
     }
 }

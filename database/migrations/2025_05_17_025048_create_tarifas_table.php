@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tarifas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_tarifa');
-            $table->decimal('tarifa_aplicada');
+            $table->decimal('tarifa_aplicada', 5, 2);
             $table->decimal('coste_tarifa');
             $table->timestamps();
         });

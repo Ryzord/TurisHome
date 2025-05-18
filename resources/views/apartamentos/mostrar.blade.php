@@ -31,16 +31,14 @@
                             <td><label for="precio_venta">Precio Venta</label></td>
                             <td>{{ $apartamento->precio_venta }}</td>
                         </tr>
-                    {{-- <form action="{{ route('apartments.destroy', $apartment->id) }}" method="POST"
-                        style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form> --}}
-
-                </table>
-                <a href="{{ route('apartamentos.index') }}" class="btn btn-secondary">Volver</a>
-                <a href="{{ route('apartamentos.edit', $apartamento->id) }}" class="btn btn-warning">Editar</a>
+                    </table>
+                    <a href="{{ route('apartamentos.index') }}" class="btn btn-secondary">Volver</a>
+                    <a href="{{ route('apartamentos.edit', $apartamento->id) }}" class="btn btn-warning">Editar</a>
+                    <form action="{{ route('apartamentos.destroy', $apartamento->id) }}" method="POST" style="display:inline-block;>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                 </div>
             </div>
         </div>
