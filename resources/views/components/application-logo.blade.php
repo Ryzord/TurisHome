@@ -1,1 +1,1 @@
-<img src="{{ asset ('logo/turishome_logo.png')}}" width="100px" alt="">
+<img src="{{ asset ('logo/turishome_logo.png')}}" alt="">

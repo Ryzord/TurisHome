@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 table-responsive">
                     {{ __('¡Aquí está el listado completo de los Tarifas! Puedes agregar más si quieres:') }}
-                    {{-- <a href="{{ route('apartamentos.create') }}" class="btn btn-success">Nuevo Apartamento</a> --}}
+                    {{-- <a href="{{ route('apartamentos.create') }}" class="btn btn-success">Nuevo Gasto</a> --}}
 
                     <table
                         class="table table-hover table-bordered table-striped align-middle text-center shadow-sm mt-4">
