@@ -43,13 +43,6 @@
                         </table>
                         <a href="{{ route('apartamentos.index') }}" class="btn btn-secondary">Volver</a>
                         <button type="submit" class="btn btn-success m-3">Guardar cambios</button>
-                        <form action="{{ route('apartamentos.destroy', $apartamento->id) }}" method="POST"
-                            style="display:inline-block;>
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                            class="btn btn-danger">Eliminar</button>
-                        </form>
                     </form>
                 </div>
             </div>
