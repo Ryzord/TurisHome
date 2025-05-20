@@ -34,11 +34,6 @@
                     </table>
                     <a href="{{ route('apartamentos.index') }}" class="btn btn-secondary">Volver</a>
                     <a href="{{ route('apartamentos.edit', $apartamento->id) }}" class="btn btn-warning">Editar</a>
-                    <form action="{{ route('apartamentos.destroy', $apartamento->id) }}" method="POST" style="display:inline-block;>
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
                 </div>
             </div>
         </div>

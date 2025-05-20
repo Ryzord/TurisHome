@@ -26,11 +26,6 @@
                     </table>
                     <a href="{{ route('tarifas.index') }}" class="btn btn-secondary">Volver</a>
                     <a href="{{ route('tarifas.edit', $tarifa->id) }}" class="btn btn-warning">Editar</a>
-                    <form action="{{ route('tarifas.destroy', $tarifa->id) }}" method="POST" style="display:inline-block;>
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
                 </div>
             </div>
         </div>
