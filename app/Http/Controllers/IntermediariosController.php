@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Intermediario;
 use Illuminate\Http\Request;
 
 class IntermediariosController extends Controller
@@ -11,7 +12,8 @@ class IntermediariosController extends Controller
      */
     public function index()
     {
-        return view('intermediarios.index');
+        $intermediarios = Intermediario::all();
+        return view('intermediarios.index', compact('intermediarios'));
     }
 
     /**
@@ -19,7 +21,7 @@ class IntermediariosController extends Controller
      */
     public function create()
     {
-        //
+        return view('intermediarios.crear');
     }
 
     /**
@@ -27,7 +29,8 @@ class IntermediariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Intermediario::create($request->all());
+        return redirect('/intermediarios');
     }
 
     /**
@@ -35,7 +38,8 @@ class IntermediariosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $intermediario = Intermediario::findOrFail($id);
+        return view('intermediarios.mostrar', compact('intermediario'));
     }
 
     /**
@@ -43,7 +47,8 @@ class IntermediariosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $intermediario = Intermediario::findOrFail($id);
+        return view('intermediarios.editar', compact('intermediario'));
     }
 
     /**
@@ -51,7 +56,9 @@ class IntermediariosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $intermediario = Intermediario::findOrFail($id);
+        $intermediario->update($request->all());
+        return redirect('/intermediarios');
     }
 
     /**
@@ -59,6 +66,8 @@ class IntermediariosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $intermediario = Intermediario::findOrFail($id);
+        $intermediario->delete();
+        return redirect('/intermediarios');
     }
 }

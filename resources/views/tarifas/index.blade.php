@@ -19,27 +19,24 @@
                                 <th>ID</th>
                                 <th>Nombre de la Tarifa</th>
                                 <th>Tarifa Aplicada (%)</th>
-                                <th>Coste de la Tarifa</th>
+                                <th>Coste de la Tarifa (€)</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @if ($apartamentos)
-                                @foreach ($apartamentos as $apartamento)
+                            @if ($tarifas)
+                                @foreach ($tarifas as $tarifa)
                                     <tr>
-                                        <td>{{ $apartamento->id }}</td>
-                                        <td>{{ $apartamento->direccion }}</td>
-                                        <td>{{ $apartamento->ciudad }}</td>
-                                        <td>{{ $apartamento->pais }}</td>
-                                        <td>{{ $apartamento->codigo_postal }}</td>
-                                        <td>{{ $apartamento->precio_venta }}€</td>
-
+                                        <td>{{ $tarifa->id }}</td>
+                                        <td>{{ $tarifa->nombre_tarifa }}</td>
+                                        <td>{{ $tarifa->tarifa_aplicada }} %</td>
+                                        <td>{{ $tarifa->coste_tarifa }} €</td>
                                         <td>
-                                            <a href="{{ route('apartamentos.show', $apartamento->id) }}"
+                                            <a href="{{ route('tarifas.show', $tarifa->id) }}"
                                                 class="btn btn-info">Ver</a>
-                                            <a href="{{ route('apartamentos.edit', $apartamento->id) }}"
+                                            <a href="{{ route('tarifas.edit', $tarifa->id) }}"
                                                 class="btn btn-warning">Editar</a>
-                                            <form action="{{ route('apartamentos.destroy', $apartamento->id) }}"
+                                            <form action="{{ route('tarifas.destroy', $tarifa->id) }}"
                                                 method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
@@ -48,7 +45,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif --}}
+                            @endif
                     </table>
                 </div>
             </div>

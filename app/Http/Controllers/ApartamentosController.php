@@ -32,7 +32,6 @@ class ApartamentosController extends Controller
     public function store(Request $request)
     {
         Apartamento::create($request->all());
-
         return redirect('/apartamentos');
     }
 

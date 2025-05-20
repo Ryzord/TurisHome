@@ -15,7 +15,7 @@
                         @method('PUT')
                         <table class="table table-bordered table-form">
                             <tr>
-                                <td><label for="address">Dirección</label></td>
+                                <td><label for="direccion">Dirección</label></td>
                                 <td><input type="text" name="direccion" class="form-control"
                                         value="{{ $apartamento->direccion }}" required></td>
                             </tr>

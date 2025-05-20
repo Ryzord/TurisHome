@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tarifa;
 use Illuminate\Http\Request;
 
 class TarifasController extends Controller
@@ -11,7 +12,8 @@ class TarifasController extends Controller
      */
     public function index()
     {
-        return view('tarifas.index');
+        $tarifas = Tarifa::all();
+        return view('tarifas.index', compact('tarifas'));
     }
 
     /**
@@ -19,7 +21,7 @@ class TarifasController extends Controller
      */
     public function create()
     {
-        //
+        return view('tarifas.crear');
     }
 
     /**
@@ -27,7 +29,8 @@ class TarifasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tarifa::create($request->all());
+        return redirect('/tarifas');
     }
 
     /**
@@ -35,7 +38,8 @@ class TarifasController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tarifa = Tarifa::findOrFail($id);
+        return view('tarifas.mostrar', compact('tarifa'));
     }
 
     /**
@@ -43,7 +47,8 @@ class TarifasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tarifa = Tarifa::findOrFail($id);
+        return view('tarifas.editar', compact('tarifa'));
     }
 
     /**
@@ -51,7 +56,9 @@ class TarifasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tarifa = Tarifa::findOrFail($id);
+        $tarifa->update($request->all());
+        return redirect('/tarifas');
     }
 
     /**
@@ -59,6 +66,8 @@ class TarifasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tarifa = Tarifa::findOrFail($id);
+        $tarifa->delete();
+        return redirect('/tarifas');
     }
 }
