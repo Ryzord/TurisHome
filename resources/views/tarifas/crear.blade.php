@@ -20,11 +20,11 @@
                             </tr>
                             <tr>
                                 <td><label for="tarifa_aplicada">Tarifa Aplicada (%)</label></td>
-                                <td><input type="text" name="tarifa_aplicada" class="form-control" required></td>
+                                <td><input type="number" name="tarifa_aplicada" class="form-control" required></td>
                             </tr>
                             <tr>
                                 <td><label for="coste_tarifa">Coste de la Tarifa (€)</label></td>
-                                <td><input type="text" name="coste_tarifa" class="form-control" step="0.01" required>
+                                <td><input type="number" name="coste_tarifa" class="form-control" required>
                                 </td>
                             </tr>
                         </table>

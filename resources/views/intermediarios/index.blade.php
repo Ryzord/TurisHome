@@ -16,7 +16,7 @@
                         class="table table-hover table-bordered table-striped align-middle text-center shadow-sm mt-4">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                {{-- <th>ID</th> --}}
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>Correo electrónico</th>
@@ -29,7 +29,7 @@
                             @if ($intermediarios)
                                 @foreach ($intermediarios as $intermediario)
                                     <tr>
-                                        <td>{{ $intermediario->id }}</td>
+                                        {{-- <td>{{ $intermediario->id }}</td> --}}
                                         <td>{{ $intermediario->nombre }}</td>
                                         <td>{{ $intermediario->apellidos }}</td>
                                         <td>{{ $intermediario->correo_electronico }}</td>

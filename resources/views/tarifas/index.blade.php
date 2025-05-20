@@ -16,7 +16,7 @@
                         class="table table-hover table-bordered table-striped align-middle text-center shadow-sm mt-4">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                {{-- <th>ID</th> --}}
                                 <th>Nombre de la Tarifa</th>
                                 <th>Tarifa Aplicada (%)</th>
                                 <th>Coste de la Tarifa (€)</th>
@@ -27,7 +27,7 @@
                             @if ($tarifas)
                                 @foreach ($tarifas as $tarifa)
                                     <tr>
-                                        <td>{{ $tarifa->id }}</td>
+                                        {{-- <td>{{ $tarifa->id }}</td> --}}
                                         <td>{{ $tarifa->nombre_tarifa }}</td>
                                         <td>{{ $tarifa->tarifa_aplicada }} %</td>
                                         <td>{{ $tarifa->coste_tarifa }} €</td>

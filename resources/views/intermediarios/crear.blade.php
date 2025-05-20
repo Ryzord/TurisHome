@@ -24,7 +24,7 @@
                             </tr>
                             <tr>
                                 <td><label for="correo_electronico">Correo electrónico</label></td>
-                                <td><input type="text" name="correo_electronico" class="form-control" step="0.01" required>
+                                <td><input type="text" name="correo_electronico" class="form-control" required>
                                 </td>
                             </tr>
                             <tr>
@@ -33,7 +33,7 @@
                             </tr>
                             <tr>
                                 <td><label for="comision">Comisión (%)</label></td>
-                                <td><input type="text" name="comision" class="form-control" required></td>
+                                <td><input type="number" name="comision" class="form-control" required></td>
                             </tr>
                         </table>
                         <a href="{{ route('intermediarios.index') }}" class="btn btn-secondary">Volver</a>

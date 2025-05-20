@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apartamento;
+use App\Models\Gasto;
 use Illuminate\Http\Request;
 
 class GastosController extends Controller
@@ -11,7 +13,8 @@ class GastosController extends Controller
      */
     public function index()
     {
-        return view('gastos.index');
+        $gastos = Gasto::with('apartamento')->get();
+        return view('gastos.index', compact('gastos'));
     }
 
     /**
@@ -19,7 +22,8 @@ class GastosController extends Controller
      */
     public function create()
     {
-        //
+        $apartamentos = Apartamento::all();
+        return view('gastos.crear', compact('apartamentos'));
     }
 
     /**
@@ -27,7 +31,10 @@ class GastosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gasto = new Gasto($request->all());
+        $gasto->calcularTotal();
+        $gasto->save();
+        return redirect('/gastos');
     }
 
     /**
@@ -59,6 +66,9 @@ class GastosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $gasto = Gasto::findOrFail($id);
+        $gasto->delete();
+        return redirect('/gastos');
     }
 }

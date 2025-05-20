@@ -22,7 +22,6 @@ class ApartamentosController extends Controller
      */
     public function create()
     {
-        // return 'Estas en la pagina de crear';
         return view('apartamentos.crear');
     }
 

@@ -15,7 +15,7 @@
                         @csrf
                         <table class="table table-bordered table-form">
                             <tr>
-                                <td><label for="address">Dirección</label></td>
+                                <td><label for="direccion">Dirección</label></td>
                                 <td><input type="text" name="direccion" class="form-control" required></td>
                             </tr>
                             <tr>
@@ -24,7 +24,7 @@
                             </tr>
                             <tr>
                                 <td><label for="pais">País</label></td>
-                                <td><input type="text" name="pais" class="form-control" step="0.01" required>
+                                <td><input type="text" name="pais" class="form-control" required>
                                 </td>
                             </tr>
                             <tr>
@@ -33,7 +33,7 @@
                             </tr>
                             <tr>
                                 <td><label for="precio_venta">Precio Venta</label></td>
-                                <td><input type="text" name="precio_venta" class="form-control" required></td>
+                                <td><input type="number" name="precio_venta" class="form-control" required></td>
                             </tr>
                         </table>
                         <a href="{{ route('apartamentos.index') }}" class="btn btn-secondary">Volver</a>

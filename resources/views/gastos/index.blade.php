@@ -10,13 +10,13 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 table-responsive">
                     {{ __('¡Aquí está el listado completo de los Tarifas! Puedes agregar más si quieres:') }}
-                    {{-- <a href="{{ route('apartamentos.create') }}" class="btn btn-success">Nuevo Gasto</a> --}}
+                    <a href="{{ route('gastos.create') }}" class="btn btn-success">Nuevo Gasto</a>
 
                     <table
                         class="table table-hover table-bordered table-striped align-middle text-center shadow-sm mt-4">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                {{-- <th>ID</th> --}}
                                 <th>Apartamento</th>
                                 <th>Gasto (Sin IVA)</th>
                                 <th>Concepto</th>
@@ -26,28 +26,43 @@
                                 <th>Total del IVA</th>
                                 <th>Total Gasto</th>
                                 <th>Pagado</th>
-                                {{-- <th>Creado el</th>
-                                <th>Actualidado el</th> --}}
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @if ($apartamentos)
-                                @foreach ($apartamentos as $apartamento)
+                            @if ($gastos)
+                                @foreach ($gastos as $gasto)
                                     <tr>
-                                        <td>{{ $apartamento->id }}</td>
-                                        <td>{{ $apartamento->direccion }}</td>
-                                        <td>{{ $apartamento->ciudad }}</td>
-                                        <td>{{ $apartamento->pais }}</td>
-                                        <td>{{ $apartamento->codigo_postal }}</td>
-                                        <td>{{ $apartamento->precio_venta }}€</td>
-
+                                        {{-- <td>{{ $gasto->id }}</td> --}}
+                                        <td>{{ $gasto->apartamento->direccion }}</td>
+                                        <td>{{ $gasto->gasto_factura_sin_iva }} €</td>
+                                        <td>{{ $gasto->concepto_gasto }}</td>
+                                        <td>{{ $gasto->fecha }}</td>
+                                        <td>{{ $gasto->nif_proveedor }}</td>
                                         <td>
-                                            <a href="{{ route('apartamentos.show', $apartamento->id) }}"
+                                            @if ($gasto->iva)
+                                                {{ $gasto->iva }} %
+                                            @else
+                                                0%
+                                            @endif
+                                        </td>
+                                        <td>{{ $gasto->total_iva }}€</td>
+                                        <td>{{ $gasto->total_gasto }}€</td>
+                                        <td>
+                                            @if ($gasto->pagado == 1)
+                                                <p>Si</p>
+                                            @elseif ($gasto->pagado == 0)
+                                                <p>No</p>
+                                            @else
+                                                <p>Error</p>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('gastos.show', $gasto->id) }}"
                                                 class="btn btn-info">Ver</a>
-                                            <a href="{{ route('apartamentos.edit', $apartamento->id) }}"
+                                            <a href="{{ route('gastos.edit', $gasto->id) }}"
                                                 class="btn btn-warning">Editar</a>
-                                            <form action="{{ route('apartamentos.destroy', $apartamento->id) }}"
+                                            <form action="{{ route('gastos.destroy', $gasto->id) }}"
                                                 method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
@@ -56,7 +71,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif --}}
+                            @endif
                     </table>
                 </div>
             </div>

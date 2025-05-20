@@ -26,7 +26,7 @@
                             </tr>
                             <tr>
                                 <td><label for="pais">País</label></td>
-                                <td><input type="text" name="pais" class="form-control" step="0.01"
+                                <td><input type="text" name="pais" class="form-control"
                                         value="{{ $apartamento->pais }} "required>
                                 </td>
                             </tr>
@@ -37,7 +37,7 @@
                             </tr>
                             <tr>
                                 <td><label for="precio_venta">Precio Venta</label></td>
-                                <td><input type="text" name="precio_venta" class="form-control"
+                                <td><input type="number" name="precio_venta" class="form-control"
                                         value="{{ $apartamento->precio_venta }}" required></td>
                             </tr>
                         </table>

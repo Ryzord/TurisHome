@@ -17,7 +17,7 @@
                         class="table table-hover table-bordered table-striped align-middle text-center shadow-sm mt-4">
                         <thead">
                             <tr>
-                                <th>ID</th>
+                                {{-- <th>ID</th> --}}
                                 <th>Dirección</th>
                                 <th>Ciudad</th>
                                 <th>Pais</th>
@@ -32,7 +32,7 @@
                             @if ($apartamentos)
                                 @foreach ($apartamentos as $apartamento)
                                     <tr>
-                                        <td>{{ $apartamento->id }}</td>
+                                        {{-- <td>{{ $apartamento->id }}</td> --}}
                                         <td>{{ $apartamento->direccion }}</td>
                                         <td>{{ $apartamento->ciudad }}</td>
                                         <td>{{ $apartamento->pais }}</td>

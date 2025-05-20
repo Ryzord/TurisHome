@@ -26,7 +26,7 @@
                             </tr>
                             <tr>
                                 <td><label for="pais">Coste de la Tarifa (€)</label></td>
-                                <td><input type="text" name="pais" class="form-control" step="0.01"
+                                <td><input type="text" name="pais" class="form-control"
                                         value="{{ $tarifa->coste_tarifa }}" required>
                                 </td>
                             </tr>

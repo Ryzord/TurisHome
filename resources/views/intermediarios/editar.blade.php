@@ -26,7 +26,7 @@
                             </tr>
                             <tr>
                                 <td><label for="correo_electronico">Correo electrónico</label></td>
-                                <td><input type="text" name="correo_electronico" class="form-control" step="0.01"
+                                <td><input type="text" name="correo_electronico" class="form-control"
                                         value="{{ $intermediario->correo_electronico }} "required>
                                 </td>
                             </tr>
@@ -37,7 +37,7 @@
                             </tr>
                             <tr>
                                 <td><label for="comision">Comisión (%)</label></td>
-                                <td><input type="text" name="comision" class="form-control"
+                                <td><input type="number" name="comision" class="form-control"
                                         value="{{ $intermediario->comision }}" required></td>
                             </tr>
                         </table>

@@ -15,4 +15,7 @@ class Apartamento extends Model
     'precio_venta'
 ];
 
+    public function gastos() {
+        return $this->hasMany(Gasto::class);
+    }
 }
