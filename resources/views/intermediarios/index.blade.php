@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 table-responsive">
                     {{ __('¡Aquí está el listado completo de los Intermediarios! Puedes agregar más si quieres:') }}
-                    {{-- <a href="{{ route('intermediarios.create') }}" class="btn btn-success">Nuevo Intermediario</a> --}}
+                    <a href="{{ route('intermediarios.create') }}" class="btn btn-success">Nuevo Intermediario</a>
 
                     <table
                         class="table table-hover table-bordered table-striped align-middle text-center shadow-sm mt-4">
@@ -22,28 +22,26 @@
                                 <th>Correo electrónico</th>
                                 <th>Teléfono</th>
                                 <th>Comision (%)</th>
-                                {{-- <th>Creado el</th>
-                                <th>Actualidado el</th> --}}
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @if ($apartamentos)
-                                @foreach ($apartamentos as $apartamento)
+                            @if ($intermediarios)
+                                @foreach ($intermediarios as $intermediario)
                                     <tr>
-                                        <td>{{ $apartamento->id }}</td>
-                                        <td>{{ $apartamento->direccion }}</td>
-                                        <td>{{ $apartamento->ciudad }}</td>
-                                        <td>{{ $apartamento->pais }}</td>
-                                        <td>{{ $apartamento->codigo_postal }}</td>
-                                        <td>{{ $apartamento->precio_venta }}€</td>
+                                        <td>{{ $intermediario->id }}</td>
+                                        <td>{{ $intermediario->nombre }}</td>
+                                        <td>{{ $intermediario->apellidos }}</td>
+                                        <td>{{ $intermediario->correo_electronico }}</td>
+                                        <td>{{ $intermediario->telefono }}</td>
+                                        <td>{{ $intermediario->comision }} %</td>
 
                                         <td>
-                                            <a href="{{ route('apartamentos.show', $apartamento->id) }}"
+                                            <a href="{{ route('intermediarios.show', $intermediario->id) }}"
                                                 class="btn btn-info">Ver</a>
-                                            <a href="{{ route('apartamentos.edit', $apartamento->id) }}"
+                                            <a href="{{ route('intermediarios.edit', $intermediario->id) }}"
                                                 class="btn btn-warning">Editar</a>
-                                            <form action="{{ route('apartamentos.destroy', $apartamento->id) }}"
+                                            <form action="{{ route('intermediarios.destroy', $intermediario->id) }}"
                                                 method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
@@ -52,7 +50,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif --}}
+                            @endif
                     </table>
                 </div>
             </div>

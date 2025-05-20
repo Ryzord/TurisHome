@@ -28,6 +28,7 @@
                                 </td>
                             </tr>
                         </table>
+                        <a href="{{ route('tarifas.index') }}" class="btn btn-secondary">Volver</a>
                         <button type="submit" class="btn btn-success m-3">Crear</button>
                         <button type="reset" class="btn btn-warning m-3">Limpiar</button>
                     </form>

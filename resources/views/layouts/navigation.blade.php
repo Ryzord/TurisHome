@@ -15,19 +15,19 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Inicio') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('apartamentos.index')" :active="request()->routeIs('apartamentos.index')">
+                    <x-nav-link :href="route('apartamentos.index')" :active="request()->routeIs('apartamentos.index', 'apartamentos.create', 'apartamentos.show', 'apartamentos.edit')">
                         {{ __('Apartamentos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('tarifas.index')" :active="request()->routeIs('tarifas.index')">
+                    <x-nav-link :href="route('tarifas.index')" :active="request()->routeIs('tarifas.index', 'tarifas.create', 'tarifas.show', 'tarifas.edit')">
                         {{ __('Tarifas') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('intermediarios.index')" :active="request()->routeIs('intermediarios.index')">
+                    <x-nav-link :href="route('intermediarios.index')" :active="request()->routeIs('intermediarios.index', 'intermediarios.create', 'intermediarios.show', 'intermediarios.edit')">
                         {{ __('Intermediarios') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('ingresos.index')" :active="request()->routeIs('ingresos.index')">
+                    <x-nav-link :href="route('ingresos.index')" :active="request()->routeIs('ingresos.index', 'ingresos.create', 'ingresos.show', 'ingresos.edit')">
                         {{ __('Ingresos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('gastos.index')" :active="request()->routeIs('gastos.index')">
+                    <x-nav-link :href="route('gastos.index')" :active="request()->routeIs('gastos.index', 'gastos.create', 'gastos.show', 'gastos.edit')">
                         {{ __('Gastos') }}
                     </x-nav-link>
                 </div>
