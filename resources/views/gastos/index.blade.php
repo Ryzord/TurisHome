@@ -23,7 +23,7 @@
                                 <th>Fecha</th>
                                 <th>NIF Proveedor</th>
                                 <th>IVA</th>
-                                <th>Total del IVA</th>
+                                <th>Total IVA</th>
                                 <th>Total Gasto</th>
                                 <th>Pagado</th>
                                 <th>Acción</th>

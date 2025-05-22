@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 table-responsive">
                     {{ __('¡Aquí está el listado completo de los Ingresos! Puedes agregar más si quieres:') }}
-                    {{-- <a href="{{ route('apartamentos.create') }}" class="btn btn-success">Nuevo Apartamento</a> --}}
+                    <a href="{{ route('ingresos.create') }}" class="btn btn-success">Nuevo Ingreso</a>
 
                     <table
                         class="table table-hover table-bordered table-striped align-middle text-center shadow-sm mt-4">
@@ -31,28 +31,26 @@
                                 <th>Total IVA</th>
                                 <th>Total Factura</th>
                                 <th>Observaciones</th>
-                                {{-- <th>Creado el</th>
-                                <th>Actualidado el</th> --}}
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @if ($apartamentos)
-                                @foreach ($apartamentos as $apartamento)
+                            {{-- @if ($ingresos)
+                                @foreach ($ingresos as $ingreso)
                                     <tr>
-                                        <td>{{ $apartamento->id }}</td>
-                                        <td>{{ $apartamento->direccion }}</td>
-                                        <td>{{ $apartamento->ciudad }}</td>
-                                        <td>{{ $apartamento->pais }}</td>
-                                        <td>{{ $apartamento->codigo_postal }}</td>
-                                        <td>{{ $apartamento->precio_venta }}€</td>
+                                        <td>{{ $ingreso->id }}</td>
+                                        <td>{{ $ingreso->direccion }}</td>
+                                        <td>{{ $ingreso->ciudad }}</td>
+                                        <td>{{ $ingreso->pais }}</td>
+                                        <td>{{ $ingreso->codigo_postal }}</td>
+                                        <td>{{ $ingreso->precio_venta }}€</td>
 
                                         <td>
-                                            <a href="{{ route('apartamentos.show', $apartamento->id) }}"
+                                            <a href="{{ route('ingresos.show', $ingreso->id) }}"
                                                 class="btn btn-info">Ver</a>
-                                            <a href="{{ route('apartamentos.edit', $apartamento->id) }}"
+                                            <a href="{{ route('ingresos.edit', $ingreso->id) }}"
                                                 class="btn btn-warning">Editar</a>
-                                            <form action="{{ route('apartamentos.destroy', $apartamento->id) }}"
+                                            <form action="{{ route('ingresos.destroy', $ingreso->id) }}"
                                                 method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')

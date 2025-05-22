@@ -42,7 +42,8 @@ class GastosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $gasto = Gasto::with('apartamento')->findOrFail($id);
+        return view('gastos.mostrar', compact('gasto'));
     }
 
     /**
@@ -50,7 +51,9 @@ class GastosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $gasto = Gasto::findOrFail($id);
+        $apartamentos = Apartamento::all();
+        return view('gastos.editar', compact('gasto', 'apartamentos'));
     }
 
     /**
@@ -58,7 +61,9 @@ class GastosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $gasto = Gasto::findOrFail($id);
+        $gasto->update($request->all());
+        return redirect('/gastos');
     }
 
     /**
