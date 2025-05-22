@@ -6,6 +6,7 @@ use App\Models\Intermediario;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use IngresosSeeder;
 
 class DatabaseSeeder extends Seeder
 {

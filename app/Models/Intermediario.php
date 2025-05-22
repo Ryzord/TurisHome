@@ -13,4 +13,8 @@ class Intermediario extends Model
     'telefono',
     'comision'
 ];
+
+    public function ingreso(){
+        return $this->hasMany(Ingreso::class);
+    }
 }

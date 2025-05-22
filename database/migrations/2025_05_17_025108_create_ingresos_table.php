@@ -13,7 +13,21 @@ return new class extends Migration
     {
         Schema::create('ingresos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('intermediario_id')->
+            $table->foreignId('intermediario_id')->constrained()->onDelete('cascade');
+            $table->foreignId('apartamento_id')->constrained()->onDelete('cascade');
+            $table->date('fecha_entrada');
+            $table->date('fecha_salida');
+            $table->tinyInteger('numero_noches')->nullable();
+            $table->string('nombre_cliente');
+            $table->string('nif_cliente');
+            $table->string('telefono_cliente');
+            $table->tinyInteger('numero_personas');
+            $table->foreignId('tarifa_aplicada')->constrained()->onDelete('cascade');
+            $table->decimal('descuento', 5, 2)->default(0);
+            $table->decimal('total_iva', 10, 2);
+            $table->decimal('total_factura', 10, 2)();
+            $table->string('observaciones')->nullable();
+
             $table->timestamps();
         });
     }

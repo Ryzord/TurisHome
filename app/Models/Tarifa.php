@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Tarifa extends Model
 {
     protected $fillable = [
-    'nombre_tarifa',
-    'tarifa_aplicada',
-    'coste_tarifa'];
+        'nombre_tarifa',
+        'tarifa_aplicada',
+        'coste_tarifa'
+    ];
 
+    public function ingreso(){
+        return $this->hasMany(Ingreso::class);
+    }
 }
