@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apartamento;
+use App\Models\Ingreso;
+use App\Models\Intermediario;
+use App\Models\Tarifa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class IngresosController extends Controller
 {
@@ -11,7 +16,8 @@ class IngresosController extends Controller
      */
     public function index()
     {
-        return view('ingresos.index');
+        $ingresos = Ingreso::with('apartamento')->get();
+        return view('ingresos.index', compact('ingresos'));
     }
 
     /**
@@ -19,7 +25,10 @@ class IngresosController extends Controller
      */
     public function create()
     {
-        //
+        $apartamentos = Apartamento::all();
+        $intermediarios = Intermediario::all();
+        $tarifas = Tarifa::all();
+        return view('ingresos.crear', compact('apartamentos', 'intermediarios', 'tarifas'));
     }
 
     /**
@@ -27,7 +36,28 @@ class IngresosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Aqui vamos a calcular las fechas
+        $fecha_entrada = Carbon::parse($request->input('fecha_entrada'));
+        $fecha_salida = Carbon::parse($request->input('fecha_salida'));
+
+        $noches = $fecha_entrada->diffInDays($fecha_salida);
+
+        //Aqui vamos a calcular la factura
+        $tarifa = Tarifa::findOrFail($request->tarifa_id);
+        $precio_descuento = $tarifa->coste_tarifa * ($request->discount / 100);
+        $descuento_aplicado = $tarifa->coste_tarifa - $precio_descuento;
+        $total_iva = $descuento_aplicado * (21/100);
+        $total_factura = $total_iva + $descuento_aplicado;
+
+        //Aqui ya creamos el objeto con sus cosas
+        $ingreso = new Ingreso($request->all());
+        $ingreso->tarifa_id = $request->tarifa_id;
+        $ingreso->total_iva = $total_iva;
+        $ingreso->numero_noches = $noches;
+        $ingreso->total_factura = $total_factura;
+        $ingreso->save();
+
+        return redirect('/ingresos');
     }
 
     /**

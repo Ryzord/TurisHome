@@ -19,13 +19,13 @@ return new class extends Migration
             $table->date('fecha_salida');
             $table->tinyInteger('numero_noches')->nullable();
             $table->string('nombre_cliente');
-            $table->string('nif_cliente');
+            $table->string('nif_cliente')->nullable();
             $table->string('telefono_cliente');
-            $table->tinyInteger('numero_personas');
-            $table->foreignId('tarifa_aplicada')->constrained()->onDelete('cascade');
+            $table->tinyInteger('numero_personas')->default(1);
+            $table->foreignId('tarifa_id')->constrained()->onDelete('cascade');
             $table->decimal('descuento', 5, 2)->default(0);
             $table->decimal('total_iva', 10, 2);
-            $table->decimal('total_factura', 10, 2)();
+            $table->decimal('total_factura', 10, 2);
             $table->string('observaciones')->nullable();
 
             $table->timestamps();

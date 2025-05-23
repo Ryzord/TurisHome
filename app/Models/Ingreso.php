@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\IngresosController;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Ingreso extends Model
 {
@@ -13,18 +15,12 @@ class Ingreso extends Model
         'fecha_salida',
         'nombre_cliente',
         'telefono_cliente',
+        'nif_cliente',
         'numero_personas',
         'tarifa_aplicada',
         'descuento',
         'observaciones'
 
-    ];
-
-    protected $casts = [
-        'check_in' => 'date',
-        'check_out' => 'date',
-        'total_iva' => 'float',
-        'total_invoice' => 'float',
     ];
 
     public function apartamento()

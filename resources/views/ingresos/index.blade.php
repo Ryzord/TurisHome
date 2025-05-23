@@ -16,7 +16,6 @@
                         class="table table-hover table-bordered table-striped align-middle text-center shadow-sm mt-4">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Intermediario</th>
                                 <th>Apartamento</th>
                                 <th>F.entrada</th>
@@ -26,24 +25,32 @@
                                 <th>NIF Cliente</th>
                                 <th>Tel. Cliente</th>
                                 <th>Nº Personas</th>
-                                <th>Tarifa</th>
+                                <th>Tarifa (%)</th>
                                 <th>Dto (%)</th>
-                                <th>Total IVA</th>
-                                <th>Total Factura</th>
+                                <th>Total IVA (€)</th>
+                                <th>Total Factura (€)</th>
                                 <th>Observaciones</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @if ($ingresos)
+                            @if ($ingresos)
                                 @foreach ($ingresos as $ingreso)
                                     <tr>
-                                        <td>{{ $ingreso->id }}</td>
-                                        <td>{{ $ingreso->direccion }}</td>
-                                        <td>{{ $ingreso->ciudad }}</td>
-                                        <td>{{ $ingreso->pais }}</td>
-                                        <td>{{ $ingreso->codigo_postal }}</td>
-                                        <td>{{ $ingreso->precio_venta }}€</td>
+                                        <td>{{ $ingreso->intermediario->nombre }} {{ $ingreso->intermediario->apellidos }}</td>
+                                        <td>{{ $ingreso->apartamento->direccion }}</td>
+                                        <td>{{ $ingreso->fecha_entrada }}</td>
+                                        <td>{{ $ingreso->fecha_salida }}</td>
+                                        <td>{{ $ingreso->numero_noches }}</td>
+                                        <td>{{ $ingreso->nombre_cliente }}</td>
+                                        <td>{{ $ingreso->nif_cliente }}€</td>
+                                        <td>{{ $ingreso->telefono_cliente }}€</td>
+                                        <td>{{ $ingreso->numero_personas }}€</td>
+                                        <td>{{ $ingreso->tarifa->nombre_tarifa }} ({{ $ingreso->tarifa->tarifa_aplicada }} %)</td>
+                                        <td>{{ $ingreso->descuento }} %</td>
+                                        <td>{{ $ingreso->total_iva }} €</td>
+                                        <td>{{ $ingreso->total_factura }} €</td>
+                                        <td>{{ $ingreso->observaciones }}</td>
 
                                         <td>
                                             <a href="{{ route('ingresos.show', $ingreso->id) }}"
@@ -59,7 +66,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif --}}
+                            @endif
                     </table>
                 </div>
             </div>
