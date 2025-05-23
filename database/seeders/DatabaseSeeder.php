@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Intermediario;
 use App\Models\User;
+use Database\Seeders\IngresosSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use IngresosSeeder;
+
 
 class DatabaseSeeder extends Seeder
 {

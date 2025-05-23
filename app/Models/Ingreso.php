@@ -17,7 +17,7 @@ class Ingreso extends Model
         'telefono_cliente',
         'nif_cliente',
         'numero_personas',
-        'tarifa_aplicada',
+        'tarifa_id',
         'descuento',
         'observaciones'
 

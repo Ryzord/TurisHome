@@ -24,8 +24,8 @@ return new class extends Migration
             $table->tinyInteger('numero_personas')->default(1);
             $table->foreignId('tarifa_id')->constrained()->onDelete('cascade');
             $table->decimal('descuento', 5, 2)->default(0);
-            $table->decimal('total_iva', 10, 2);
-            $table->decimal('total_factura', 10, 2);
+            $table->decimal('total_iva', 10, 2)->default(0);
+            $table->decimal('total_factura', 10, 2)->default(0);
             $table->string('observaciones')->nullable();
 
             $table->timestamps();

@@ -43,9 +43,9 @@
                                         <td>{{ $ingreso->fecha_salida }}</td>
                                         <td>{{ $ingreso->numero_noches }}</td>
                                         <td>{{ $ingreso->nombre_cliente }}</td>
-                                        <td>{{ $ingreso->nif_cliente }}€</td>
-                                        <td>{{ $ingreso->telefono_cliente }}€</td>
-                                        <td>{{ $ingreso->numero_personas }}€</td>
+                                        <td>{{ $ingreso->nif_cliente }}</td>
+                                        <td>{{ $ingreso->telefono_cliente }}</td>
+                                        <td>{{ $ingreso->numero_personas }}</td>
                                         <td>{{ $ingreso->tarifa->nombre_tarifa }} ({{ $ingreso->tarifa->tarifa_aplicada }} %)</td>
                                         <td>{{ $ingreso->descuento }} %</td>
                                         <td>{{ $ingreso->total_iva }} €</td>
