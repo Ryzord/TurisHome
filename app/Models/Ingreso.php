@@ -9,18 +9,20 @@ use Illuminate\Support\Carbon;
 class Ingreso extends Model
 {
     protected $fillable = [
-        'intermediario_id',
         'apartamento_id',
+        'intermediario_id',
+        'tarifa_id',
         'fecha_entrada',
         'fecha_salida',
-        'nombre_cliente',
-        'telefono_cliente',
-        'nif_cliente',
         'numero_personas',
-        'tarifa_id',
         'descuento',
-        'observaciones'
-
+        'nombre_cliente',
+        'nif_cliente',
+        'telefono_cliente',
+        'observaciones',
+        'numero_noches',
+        'total_iva',
+        'total_factura'
     ];
 
     public function apartamento()
@@ -37,4 +39,17 @@ class Ingreso extends Model
     {
         return $this->belongsTo(Tarifa::class);
     }
+
+    // Se ha intentado hacer de esta manera, pero mucho lio. Se mete en el IngresosController y au
+    // public function calcularNoches()
+    // {
+    //     $fecha_entrada = Carbon::parse($this->input('fecha_entrada'));
+    //     $fecha_salida = Carbon::parse($this->input('fecha_salida'));
+
+    //     $nochesCalculado = $fecha_entrada->diffInDays($fecha_salida);
+
+    //     return $nochesCalculado;
+    // }
+
+    // public function calcularFactura() {}
 }

@@ -18,18 +18,18 @@
                             <tr>
                                 <th>Intermediario</th>
                                 <th>Apartamento</th>
-                                <th>F.entrada</th>
-                                <th>F.salida</th>
+                                {{-- <th>F.entrada</th>
+                                <th>F.salida</th> --}}
                                 <th>NºNoches</th>
                                 <th>Cliente</th>
-                                <th>NIF Cliente</th>
-                                <th>Tel. Cliente</th>
+                                {{-- <th>NIF Cliente</th> --}}
+                                {{-- <th>Tel. Cliente</th> --}}
                                 <th>Nº Personas</th>
-                                <th>Tarifa (%)</th>
-                                <th>Dto (%)</th>
-                                <th>Total IVA (€)</th>
+                                {{-- <th>Tarifa (%)</th> --}}
+                                {{-- <th>Dto (%)</th> --}}
+                                {{-- <th>Total IVA (€)</th> --}}
                                 <th>Total Factura (€)</th>
-                                <th>Observaciones</th>
+                                {{-- <th>Observaciones</th> --}}
                                 <th>Acción</th>
                             </tr>
                         </thead>
@@ -39,18 +39,18 @@
                                     <tr>
                                         <td>{{ $ingreso->intermediario->nombre }} {{ $ingreso->intermediario->apellidos }}</td>
                                         <td>{{ $ingreso->apartamento->direccion }}</td>
-                                        <td>{{ $ingreso->fecha_entrada }}</td>
-                                        <td>{{ $ingreso->fecha_salida }}</td>
+                                        {{-- <td>{{ $ingreso->fecha_entrada }}</td>
+                                        <td>{{ $ingreso->fecha_salida }}</td> --}}
                                         <td>{{ $ingreso->numero_noches }}</td>
                                         <td>{{ $ingreso->nombre_cliente }}</td>
-                                        <td>{{ $ingreso->nif_cliente }}</td>
-                                        <td>{{ $ingreso->telefono_cliente }}</td>
+                                        {{-- <td>{{ $ingreso->nif_cliente }}</td> --}}
+                                        {{-- <td>{{ $ingreso->telefono_cliente }}</td> --}}
                                         <td>{{ $ingreso->numero_personas }}</td>
-                                        <td>{{ $ingreso->tarifa->nombre_tarifa }} ({{ $ingreso->tarifa->tarifa_aplicada }} %)</td>
-                                        <td>{{ $ingreso->descuento }} %</td>
-                                        <td>{{ $ingreso->total_iva }} €</td>
+                                        {{-- <td>{{ $ingreso->tarifa->nombre_tarifa }} ({{ $ingreso->tarifa->tarifa_aplicada }} %)</td> --}}
+                                        {{-- <td>{{ $ingreso->descuento }} %</td> --}}
+                                        {{-- <td>{{ $ingreso->total_iva }} €</td> --}}
                                         <td>{{ $ingreso->total_factura }} €</td>
-                                        <td>{{ $ingreso->observaciones }}</td>
+                                        {{-- <td>{{ $ingreso->observaciones }}</td> --}}
 
                                         <td>
                                             <a href="{{ route('ingresos.show', $ingreso->id) }}"
