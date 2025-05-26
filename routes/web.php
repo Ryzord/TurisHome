@@ -8,15 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TarifasController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/welcome', function () {
-//     return view('welcome');
-// });
-
 Route::redirect('/', "dashboard");
-
-// Route::get('/apartamentos', function (){
-//     return view('apartamentos');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,6 +26,7 @@ Route::resource('/tarifas', TarifasController::class);
 Route::resource('/intermediarios', IntermediariosController::class);
 Route::resource('/gastos', GastosController::class);
 Route::resource('/ingresos', IngresosController::class);
+// Route::get();
 
 
 

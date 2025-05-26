@@ -23,24 +23,30 @@
                                     Liquidación Trimestral de IVA
                                 </div>
                                 <div class="card-body">
-                                    {{-- <form method="GET" action="{{ route('iva.liquidacion') }}" class="row g-3 align-items-center"> --}}
+                                    {{-- <form method="POST" action="{{ route('') }}" class="row g-3 align-items-center"> --}}
                                     <div class="col-auto">
                                         <label for="trimestre" class="col-form-label">Seleccionar Trimestre:</label>
                                     </div>
-                                    <div class="col-auto">
-                                        <select name="trimestre" id="trimestre" class="form-select">
-                                            <option value="1" {{ request('trimestre') == 1 ? 'selected' : '' }}>1º
-                                                Trimestre (Ene-Mar)</option>
-                                            <option value="2" {{ request('trimestre') == 2 ? 'selected' : '' }}>2º
-                                                Trimestre (Abr-Jun)</option>
-                                            <option value="3" {{ request('trimestre') == 3 ? 'selected' : '' }}>3º
-                                                Trimestre (Jul-Sep)</option>
-                                            <option value="4" {{ request('trimestre') == 4 ? 'selected' : '' }}>4º
-                                                Trimestre (Oct-Dic)</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-auto">
-                                        <button type="submit" class="btn btn-outline-info">Calcular</button>
+                                    <div class="row my-3">
+                                        <div class="col-6">
+                                            <select name="trimestre" id="trimestre" class="form-select">
+                                                <option value="1"
+                                                    {{ request('trimestre') == 1 ? 'selected' : '' }}>Primer
+                                                    Trimestre (Ene-Mar)</option>
+                                                <option value="2"
+                                                    {{ request('trimestre') == 2 ? 'selected' : '' }}>Segundo
+                                                    Trimestre (Abr-Jun)</option>
+                                                <option value="3"
+                                                    {{ request('trimestre') == 3 ? 'selected' : '' }}>Tercer
+                                                    Trimestre (Jul-Sep)</option>
+                                                <option value="4"
+                                                    {{ request('trimestre') == 4 ? 'selected' : '' }}>Cuarto
+                                                    Trimestre (Oct-Dic)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="submit" class="btn btn-outline-info">Calcular</button>
+                                        </div>
                                     </div>
                                     </form>
 
