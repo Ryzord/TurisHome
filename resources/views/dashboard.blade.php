@@ -90,7 +90,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Total Ingresos:</h5>
                                         <p class="card-text fs-4">
-                                            {{ isset($ventasTotales) ? number_format($ventasTotales, 2) : '--' }} €
+                                            {{ isset($totalIngresos) ? number_format($totalIngresos, 2, ',', '.') : '--' }} €
                                         </p>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Total Gastos:</h5>
                                         <p class="card-text fs-4">
-                                            {{ $porcentajeCrecimiento ?? '--' }} €
+                                            {{ isset($totalGastos) ? number_format($totalGastos, 2, ',', '.') : '--' }} €
                                         </p>
                                     </div>
                                 </div>

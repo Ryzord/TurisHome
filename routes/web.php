@@ -5,14 +5,15 @@ use App\Http\Controllers\GastosController;
 use App\Http\Controllers\IngresosController;
 use App\Http\Controllers\IntermediariosController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResumenController;
 use App\Http\Controllers\TarifasController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::redirect('/', "dashboard");
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//cambiamos la ruta para que pase por el ResumenControllador, si no no hará los calculos.
+Route::get('/dashboard',[ResumenController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
