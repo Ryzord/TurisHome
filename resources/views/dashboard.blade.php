@@ -23,87 +23,90 @@
                                     Liquidación Trimestral de IVA
                                 </div>
                                 <div class="card-body">
-                                    {{-- <form method="POST" action="{{ route('') }}" class="row g-3 align-items-center"> --}}
-                                    <div class="col-auto">
-                                        <label for="trimestre" class="col-form-label">Seleccionar Trimestre:</label>
-                                    </div>
-                                    <div class="row my-3">
-                                        <div class="col-6">
-                                            <select name="trimestre" id="trimestre" class="form-select">
-                                                <option value="1"
-                                                    {{ request('trimestre') == 1 ? 'selected' : '' }}>Primer
-                                                    Trimestre (Ene-Mar)</option>
-                                                <option value="2"
-                                                    {{ request('trimestre') == 2 ? 'selected' : '' }}>Segundo
-                                                    Trimestre (Abr-Jun)</option>
-                                                <option value="3"
-                                                    {{ request('trimestre') == 3 ? 'selected' : '' }}>Tercer
-                                                    Trimestre (Jul-Sep)</option>
-                                                <option value="4"
-                                                    {{ request('trimestre') == 4 ? 'selected' : '' }}>Cuarto
-                                                    Trimestre (Oct-Dic)</option>
-                                            </select>
+                                    <form method="GET" action="{{ route('calcularTrimestre') }}"
+                                        class="row g-3 align-items-center">
+                                        <div class="col-auto">
+                                            <label for="trimestre" class="col-form-label">Seleccionar Trimestre:</label>
                                         </div>
-                                        <div class="col-6">
-                                            <button type="submit" class="btn btn-outline-info">Calcular</button>
+                                        <div class="row my-3">
+                                            <div class="col-6">
+                                                <select name="trimestre" id="trimestre" class="form-select">
+                                                    <option value="0">Todos los
+                                                        Trimestres</option>
+                                                    <option value="1">Primer
+                                                        Trimestre (Ene-Mar)</option>
+                                                    <option value="2">Segundo
+                                                        Trimestre (Abr-Jun)</option>
+                                                    <option value="3">Tercer
+                                                        Trimestre (Jul-Sep)</option>
+                                                    <option value="4">Cuarto
+                                                        Trimestre (Oct-Dic)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-6">
+                                                <button type="submit" class="btn btn-outline-info">Calcular</button>
+                                            </div>
                                         </div>
-                                    </div>
                                     </form>
 
-                                    {{-- @if (isset($ivaRepercutido) && isset($ivaSoportado)) --}}
-                                    <hr>
-                                    <div class="row mt-3">
-                                        <div class="col-md-4">
-                                            <div class="alert alert-primary">
-                                                <strong>IVA Repercutido:</strong>
-                                                {{-- {{ number_format($ivaRepercutido, 2) }} € --}}
+                                    @if (isset($totalTrimestreIngresos) && isset($totalTrimestreGastos))
+                                        <hr>
+                                        <div class="row mt-3">
+                                            <div class="col-md-4">
+                                                <div class="alert alert-primary">
+                                                    <strong>IVA Repercutido:</strong>
+                                                    {{ number_format($totalTrimestreIngresos, 2, ',', '.') }} €
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="alert alert-secondary">
+                                                    <strong>IVA Soportado:</strong>
+                                                    {{ number_format($totalTrimestreGastos, 2, ',', '.') }} €
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div
+                                                    class="alert alert-{{ $trimestreLiquidacion >= 0 ? 'danger' : 'success' }}">
+                                                    <strong>Resultado:</strong>
+                                                    {{ $trimestreLiquidacion >= 0 ? 'Debes pagar->' : 'Te compensan con->' }}
+                                                    {{ number_format($trimestreLiquidacion, 2, ',', '.') }} €
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="alert alert-secondary">
-                                                <strong>IVA Soportado:</strong>
-                                                {{-- {{ number_format($ivaSoportado, 2) }} € --}}
-                                            </div>
+                                    @elseif(request()->has('trimestre'))
+                                        <div class="alert alert-warning mt-3">
+                                            No se encontraron datos para el trimestre seleccionado.
                                         </div>
-                                        <div class="col-md-4">
-                                            {{-- <div class="alert alert-{{ $resultadoIva >= 0 ? 'success' : 'danger' }}"> --}}
-                                            <strong>Resultado:</strong>
-                                            {{-- {{ number_format($resultadoIva, 2) }} €
-                                ({{ $resultadoIva >= 0 ? 'A pagar' : 'A compensar' }}) --}}
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container mt-4">
+                            <div class="row">
+
+                                <!-- Total Ingresos -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Total Ingresos:</h5>
+                                            <p class="card-text fs-4">
+                                                {{ isset($totalIngresos) ? number_format($totalIngresos, 2, ',', '.') : '--' }}
+                                                €
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- @elseif(request()->has('trimestre'))
-                        <div class="alert alert-warning mt-3">
-                            No se encontraron datos para el trimestre seleccionado.
-                        </div>
-                    @endif --}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container mt-4">
-                        <div class="row">
 
-                            <!-- Total Ingresos -->
-                            <div class="col-md-6 mb-4">
-                                <div class="card text-white bg-success shadow">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Total Ingresos:</h5>
-                                        <p class="card-text fs-4">
-                                            {{ isset($totalIngresos) ? number_format($totalIngresos, 2, ',', '.') : '--' }} €
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Total Gastos -->
-                            <div class="col-md-6 mb-4">
-                                <div class="card text-white bg-danger shadow">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Total Gastos:</h5>
-                                        <p class="card-text fs-4">
-                                            {{ isset($totalGastos) ? number_format($totalGastos, 2, ',', '.') : '--' }} €
-                                        </p>
+                                <!-- Total Gastos -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-white bg-danger shadow">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Total Gastos:</h5>
+                                            <p class="card-text fs-4">
+                                                {{ isset($totalGastos) ? number_format($totalGastos, 2, ',', '.') : '--' }}
+                                                €
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -112,6 +115,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </x-app-layout>

@@ -13,6 +13,7 @@ class Gasto extends Model
         'fecha',
         'nif_proveedor',
         'iva',
+        'total_iva',
         'pagado'
     ];
 

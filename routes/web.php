@@ -8,12 +8,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResumenController;
 use App\Http\Controllers\TarifasController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::redirect('/', "dashboard");
 
 //cambiamos la ruta para que pase por el ResumenControllador, si no no hará los calculos.
 Route::get('/dashboard',[ResumenController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/calcular-trimestre',[ResumenController::class, 'calcularTrimestre'])->middleware(['auth', 'verified'])->name('calcularTrimestre');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,7 +27,6 @@ Route::resource('/tarifas', TarifasController::class);
 Route::resource('/intermediarios', IntermediariosController::class);
 Route::resource('/gastos', GastosController::class);
 Route::resource('/ingresos', IngresosController::class);
-// Route::get();
 
 
 
