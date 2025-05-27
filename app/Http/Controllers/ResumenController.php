@@ -43,7 +43,7 @@ class ResumenController extends Controller
     {
         $trimetre = $request->trimestre;
         $año = Carbon::now()->year;
-        // $año = 2024;
+        // $año = 2024; // esto lo uso porque tenia registros de 2024
 
         switch ($trimetre) {
             case 0:

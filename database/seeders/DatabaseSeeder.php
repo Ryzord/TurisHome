@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TarifasSeeder::class);
         $this->call(IntermediariosSeeder::class);
         $this->call(GastosSeeder::class);
-        // $this->call(IngresosSeeder::class);
+        $this->call(IngresosSeeder::class);
 
     }
 }

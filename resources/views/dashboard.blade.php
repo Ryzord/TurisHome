@@ -15,6 +15,37 @@
                         </h1>
                         <p class="text-muted fs-5">Resumen de indicadores clave y liquidación trimestral de IVA</p>
                     </div>
+                    <div class="container mt-4">
+                            <div class="row">
+
+                                <!-- Total Ingresos -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Total Ingresos:</h5>
+                                            <p class="card-text fs-4">
+                                                {{ isset($totalIngresos) ? number_format($totalIngresos, 2, ',', '.') : '--' }}
+                                                €
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Total Gastos -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="card text-white bg-danger shadow">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Total Gastos:</h5>
+                                            <p class="card-text fs-4">
+                                                {{ isset($totalGastos) ? number_format($totalGastos, 2, ',', '.') : '--' }}
+                                                €
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     {{-- Sección: Liquidación Trimestral de IVA --}}
                     <div class="row mt-5">
                         <div class="col-md-12">
@@ -68,7 +99,7 @@
                                                 <div
                                                     class="alert alert-{{ $trimestreLiquidacion >= 0 ? 'danger' : 'success' }}">
                                                     <strong>Resultado:</strong>
-                                                    {{ $trimestreLiquidacion >= 0 ? 'Debes pagar->' : 'Te compensan con->' }}
+                                                    {{ $trimestreLiquidacion >= 0 ? 'Debes pagar ->' : 'Te compensan con ->' }}
                                                     {{ number_format($trimestreLiquidacion, 2, ',', '.') }} €
                                                 </div>
                                             </div>
@@ -78,36 +109,6 @@
                                             No se encontraron datos para el trimestre seleccionado.
                                         </div>
                                     @endif
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container mt-4">
-                            <div class="row">
-
-                                <!-- Total Ingresos -->
-                                <div class="col-md-6 mb-4">
-                                    <div class="card text-white bg-success shadow">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Total Ingresos:</h5>
-                                            <p class="card-text fs-4">
-                                                {{ isset($totalIngresos) ? number_format($totalIngresos, 2, ',', '.') : '--' }}
-                                                €
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Total Gastos -->
-                                <div class="col-md-6 mb-4">
-                                    <div class="card text-white bg-danger shadow">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Total Gastos:</h5>
-                                            <p class="card-text fs-4">
-                                                {{ isset($totalGastos) ? number_format($totalGastos, 2, ',', '.') : '--' }}
-                                                €
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
